@@ -1,0 +1,48 @@
+package com.employee.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.EmployeeServices.EmployeeService;
+import org.employee.model.Employee;
+
+/**
+ * Servlet implementation class EmloyeeController
+ */
+public class EmloyeeController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EmloyeeController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		Integer employeeId = Integer.parseInt(request.getParameter("employeeId"));
+		EmployeeService employeeService = new EmployeeService();
+		Employee employee=employeeService.getEmployeeInformation(employeeId);
+		request.setAttribute("Employee", employee);
+		RequestDispatcher rd = request.getRequestDispatcher("EmployeeInformation.jsp");
+		rd.forward(request, response);
+		
+	}
+
+}

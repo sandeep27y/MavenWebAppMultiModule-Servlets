@@ -1,0 +1,51 @@
+package org.EmployeeReposotories;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import org.employee.model.Employee;
+
+public class EmployeeDAO {
+	PreparedStatement pStatement = null;
+	Connection con = DataBaseConnection.getConnection();
+	public Employee getEmployeeInformation(int id){
+		Employee e = null;
+		ResultSet rs =	null;
+		try {
+			pStatement = con.prepareStatement("select * from employees where emp_no=?");
+			pStatement.setInt(1, id);
+			rs = pStatement.executeQuery();
+			while(rs.next()){
+				e = new Employee(Integer.parseInt(rs.getString("emp_no")), rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"));
+			}
+		}catch(Exception e1){
+			e1.printStackTrace();
+		}
+		return e;
+		
+	}
+
+	public boolean updateEmployeeInformation(int employeeId,Employee employee) {
+		boolean x=false;
+		
+		try {
+			pStatement = con.prepareStatement("update employee set first_name = ?,last_name=?, gender=? where employeeNumber = ?");
+			
+			pStatement.setString(1, employee.getFirstNAme());
+			pStatement.setString(2, employee.getLastName());
+			pStatement.setString(3, employee.getGender());
+			pStatement.setInt(4, employee.getEmployeeNo());
+			int rows=pStatement.executeUpdate();
+			
+			if(rows>0){
+				x=true;
+			}else{
+				x=false;
+			}
+			
+		} 
+	
+	return x;
+	}
+}

@@ -1,0 +1,78 @@
+package org.employee.model;
+
+import java.sql.Date;
+
+public class EmployeeDetails {
+	private int employeeNo;
+	private Date birthDate;
+	private String firstNAme;
+	private String lastName;
+	private String gender;
+	private Date hireDate;
+	
+	public int getEmployeeNo() {
+		return employeeNo;
+	}
+	public void setEmployeeNo(int employeeNo) {
+		this.employeeNo = employeeNo;
+	}
+	public String getFirstNAme() {
+		return firstNAme;
+	}
+	public void setFirstNAme(String firstNAme) {
+		this.firstNAme = firstNAme;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	public Date getHireDate() {
+		return hireDate;
+	}
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
+	public EmployeeDetails(int employeeNo, String firstNAme, String lastName, String gender) {
+		super();
+		this.employeeNo = employeeNo;
+		this.firstNAme = firstNAme;
+		this.lastName = lastName;
+		this.gender = gender;
+	}
+	public EmployeeDetails(String firstNAme, String lastName, String gender) {
+		super();
+		this.firstNAme = firstNAme;
+		this.lastName = lastName;
+		this.gender = gender;
+	}
+	public EmployeeDetails(int employeeNo, Date birthDate, String firstNAme, String lastName, String gender, Date hireDate) {
+		super();
+		this.employeeNo = employeeNo;
+		this.birthDate = birthDate;
+		this.firstNAme = firstNAme;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.hireDate = hireDate;
+	}
+	
+	
+	
+
+
+	
+}

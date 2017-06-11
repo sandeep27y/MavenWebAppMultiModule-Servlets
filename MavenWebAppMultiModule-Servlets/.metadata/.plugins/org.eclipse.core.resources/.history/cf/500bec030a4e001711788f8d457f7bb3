@@ -1,0 +1,20 @@
+package org.EmployeeServices;
+
+import org.EmployeeReposotories.EmployeeDAO;
+import org.employee.model.Employee;
+
+public class EmployeeService {
+	
+		public Employee getEmployeeInformation(int id){
+			EmployeeDAO employeeDAO = new EmployeeDAO();
+			Employee employee=employeeDAO.getEmployeeInformation(id);
+			return employee;
+			
+		}
+
+		public boolean updateEmployeeInformation(int employeeId) {
+			return false;
+			// TODO Auto-generated method stub
+			
+		}
+	}

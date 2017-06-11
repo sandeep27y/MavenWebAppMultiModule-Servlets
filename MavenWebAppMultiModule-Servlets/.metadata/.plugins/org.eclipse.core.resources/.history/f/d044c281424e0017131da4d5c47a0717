@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<c:set var="employeeId" value="${requestScope.employeeId}"></c:set>
+<div align="right" style="margin-top: -85px; margin-right: 230px">
+<form action="/EmployeeApplication/update" method="post">
+EmployeeId: <input type="text" value="${employeeId}" name="employeeId"><br>
+EmployeeFirstName: <input type="text" name="firstName"><br>
+EmployeeLastName: <input type="text" name="lastName"><br>
+EmployeeGender: <input type="text" name="gender"><br>
+<input type="submit" value="Update">
+</form>
+</div>
+<c:out value="${requestScope.display}"></c:out>
+</body>
+</html>

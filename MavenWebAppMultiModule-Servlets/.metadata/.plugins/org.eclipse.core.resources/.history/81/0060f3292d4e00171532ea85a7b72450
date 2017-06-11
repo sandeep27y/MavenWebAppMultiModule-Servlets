@@ -1,0 +1,24 @@
+package org.EmployeeServices;
+
+import org.EmployeeReposotories.EmployeeDAO;
+import org.employee.model.EmployeeDetails;
+
+public class EmployeeService {
+	EmployeeDAO employeeDAO = new EmployeeDAO();
+		public EmployeeDetails getEmployeeInformation(int id){
+			EmployeeDetails employee=employeeDAO.getEmployeeInformation(id);
+			return employee;
+			
+		}
+
+		public boolean updateEmployeeInformation(int employeeId,EmployeeDetails employee) {			
+			 boolean validation = employeeDAO.updateEmployeeInformation(employeeId,employee);
+			 return validation;
+		}
+
+		public boolean addEmployeeInformation(EmployeeDetails employee2) {
+			// TODO Auto-generated method stub
+			boolean validation = employeeDAO.addEmployeeInformation(employee2);
+			return validation;
+		}
+	}

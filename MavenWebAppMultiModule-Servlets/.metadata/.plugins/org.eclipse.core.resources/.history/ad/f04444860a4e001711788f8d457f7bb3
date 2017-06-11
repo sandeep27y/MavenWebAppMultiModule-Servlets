@@ -1,0 +1,19 @@
+package org.EmployeeServices;
+
+import org.EmployeeReposotories.EmployeeDAO;
+import org.employee.model.Employee;
+
+public class EmployeeService {
+	EmployeeDAO employeeDAO = new EmployeeDAO();
+		public Employee getEmployeeInformation(int id){
+			Employee employee=employeeDAO.getEmployeeInformation(id);
+			return employee;
+			
+		}
+
+		public boolean updateEmployeeInformation(Employee employee) {
+			
+			 boolean validation = employeeDAO.updateEmployeeInformation(employee);
+			 return validation;
+		}
+	}
