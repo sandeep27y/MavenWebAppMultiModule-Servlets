@@ -1,0 +1,51 @@
+package org.EmployeeServices;
+
+import org.EmployeeReposotories.DepartmentDAO;
+import org.EmployeeReposotories.EmployeeDAO;
+import org.EmployeeReposotories.SalaryDAO;
+import org.employee.model.Department;
+import org.employee.model.Employee;
+import org.employee.model.EmployeeDetails;
+import org.employee.model.Salary;
+
+public class EmployeeService {
+	EmployeeDAO employeeDAO = new EmployeeDAO();
+	SalaryDAO salaryDAO = new SalaryDAO();
+	DepartmentDAO departmentDAO = new DepartmentDAO();
+		public EmployeeDetails getEmployeeInformation(int id){
+			Employee employee=employeeDAO.getEmployeeInformation(id);
+			Salary salary=salaryDAO.getSalaryInformation(id);
+			Department department=departmentDAO.getDepartmentInformation(id);
+			EmployeeDetails employeeDetails = new EmployeeDetails();
+			employeeDetails.setEmployeeNo(employee.getEmployeeNumber());
+			employeeDetails.setFirstNAme(employee.getFirstName());
+			employeeDetails.setLastName(employee.getLastName());
+			employeeDetails.setGender(employee.getGender());
+			employeeDetails.setHireDate(employee.getHireDate());
+			employeeDetails.setSalary(salary.getSalary());
+			employeeDetails.setDeptname(department.getDepartmentName());
+			return employeeDetails;
+			
+		}
+
+		public boolean updateEmployeeInformation(int employeeId,EmployeeDetails employee) {			
+			 boolean EmployeeValidation = employeeDAO.updateEmployeeInformation(employeeId,employee);
+			 boolean SalaryValidation=salaryDAO.updateSalaryInformation(employeeId,employee);
+			 boolean DepartmentValidation=departmentDAO.updateDepartmentInformation(employeeId,employee);
+			 if(EmployeeValidation && SalaryValidation)
+					return true;
+				else
+					return false;
+		}
+
+		public boolean addEmployeeInformation(EmployeeDetails employee2) {
+			// TODO Auto-generated method stub
+			boolean EmployeeValidation = employeeDAO.addEmployeeInformation(employee2);
+			boolean SalaryValidation = salaryDAO.addSalaryInformation(employee2);
+			
+			if(EmployeeValidation && SalaryValidation)
+				return true;
+			else
+				return false;
+		}
+	}

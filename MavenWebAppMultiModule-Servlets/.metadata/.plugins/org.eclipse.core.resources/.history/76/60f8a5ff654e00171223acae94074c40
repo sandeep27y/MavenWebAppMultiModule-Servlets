@@ -1,0 +1,10 @@
+package org.EmployeeReposotories;
+
+public class DepartmentDAO {
+
+	public void getDepartmentInformation(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

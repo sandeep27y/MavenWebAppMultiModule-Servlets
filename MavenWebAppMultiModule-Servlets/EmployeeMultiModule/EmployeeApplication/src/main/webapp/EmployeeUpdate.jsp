@@ -1,3 +1,4 @@
+<%@page import="org.employee.model.EmployeeDetails"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,22 +9,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:set var="employeeId" value="${requestScope.employeeId}"></c:set>
+<c:set var="EmployeeDetails" value="${requestScope.EmployeeDetails}"></c:set>
 <div style="margin-top: 50px; margin-left: 10px;">
 <form action="/EmployeeApplication/update" method="post">
 <h3 style="margin-left: 56px">Update Employee Details</h3>
 <table>
 	<tr>
-		<td>EmployeeId:</td><td><input type="text" value="${employeeId}" name="employeeId"></td>
+		<td>EmployeeId:</td><td><input type="text" value="${EmployeeDetails.getEmployeeNo()}" name="employeeId" disabled="disabled"></td>
 	</tr>
 	<tr>
-		<td>EmployeeFirstName: </td><td><input type="text" name="firstName"></td>
+		<td>EmployeeFirstName: </td><td><input type="text" name="firstName" value="${EmployeeDetails.getFirstNAme()}"></td>
 	</tr>
 	<tr>
-		<td>EmployeeLastName: </td><td><input type="text" name="lastName"></td>
+		<td>EmployeeLastName: </td><td><input type="text" name="lastName" value="${EmployeeDetails.getLastName()}"></td>
 	</tr>
 	<tr>
-		<td>EmployeeGender: </td><td><input type="text" name="gender"></td>
+		<td>EmployeeGender: </td><td><input type="text" name="gender" value="${EmployeeDetails.getGender()}"></td>
+	</tr>
+	<tr>
+		<td>JoinDate: </td><td><input type="text" name="hireDate" value="${EmployeeDetails.getHireDate()}"></td>
+	</tr>
+	<tr>
+		<td>DepartmentName: </td><td><input type="text" name="departmentName" value="${EmployeeDetails.getDeptname()}"></td>
+	</tr>
+	<tr>
+		<td>Salary: </td><td><input type="text" name="salary" value="${EmployeeDetails.getSalary()}"></td>
 	</tr>
 	<tr>
 		<td></td><td><input type="submit" value="Update"></td>

@@ -13,10 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2 align="center">Emoployee Details</h2>
+
+<h2 align="center">Employee Details</h2>
 <table border="1" align="center" class="table">
 	<tr align="center">
-		<th>EmployeeId</th><th>EmployeeFirstName</th><th>EmployeeLastName</th><th>EmployeeGender</th><th>Operations</th>
+		<th>EmployeeId</th><th>EmployeeFirstName</th><th>EmployeeLastName</th><th>EmployeeGender</th>
+		<th>JoinDate</th><th>DepartmentName</th><th>MinSalary</th><th>Operations</th>		
 	</tr>
 <c:set var="employee" value="${requestScope.Employee}"></c:set>
 	<tr class="info">
@@ -24,6 +26,9 @@
 		<td align="center"><c:out value="${employee.getFirstNAme()}"/></td>
 		<td align="center"><c:out value="${employee.getLastName()}"/></td>
 		<td align="center"><c:out value="${employee.getGender()}"/></td>
+		<td align="center"><c:out value="${employee.getHireDate()}"/></td>
+		<td align="center"><c:out value="${employee.getDeptname()}"/></td>
+		<td align="center"><c:out value="${employee.getSalary()}"/></td>
 		<td><a href="edit?id=<c:out value='${employee.getEmployeeNo()}'/>">Update</a></td>
 		
 	</tr>

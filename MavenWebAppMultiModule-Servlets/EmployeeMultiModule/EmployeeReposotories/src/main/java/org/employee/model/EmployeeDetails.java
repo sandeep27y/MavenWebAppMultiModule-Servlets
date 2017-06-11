@@ -9,16 +9,16 @@ public class EmployeeDetails {
 	private String lastName;
 	private String gender;
 	private Date hireDate;
-	private String salary;
+	private Double salary;
 	private Date fromdate;
 	private Date todate;
 	private String deptnumber;
 	private String deptname;
 	
-	public String getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
-	public void setSalary(String salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 	public Date getFromdate() {
@@ -105,7 +105,7 @@ public class EmployeeDetails {
 		this.hireDate = hireDate;
 	}
 	public EmployeeDetails(int employeeNo, Date birthDate, String firstNAme, String lastName, String gender,
-			Date hireDate, String salary, Date fromdate, Date todate, String deptnumber, String deptname) {
+			Date hireDate, Double salary, Date fromdate, Date todate, String deptnumber, String deptname) {
 		super();
 		this.employeeNo = employeeNo;
 		this.birthDate = birthDate;
@@ -119,6 +119,21 @@ public class EmployeeDetails {
 		this.deptnumber = deptnumber;
 		this.deptname = deptname;
 	}
+	public EmployeeDetails() {
+		// TODO Auto-generated constructor stub
+	}
+	public EmployeeDetails(int employeeNo, String firstNAme, String lastName, String gender, Date hireDate,
+			String deptname,Double salary) {
+		super();
+		this.employeeNo = employeeNo;
+		this.firstNAme = firstNAme;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.hireDate = hireDate;
+		this.salary = salary;
+		this.deptname = deptname;
+	}
+	
 	
 	
 	

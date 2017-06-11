@@ -5,20 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.employee.model.Employee;
 import org.employee.model.EmployeeDetails;
 
 public class EmployeeDAO {
 	PreparedStatement pStatement = null;
 	Connection con = DataBaseConnection.getConnection();
-	public EmployeeDetails getEmployeeInformation(int id){
-		EmployeeDetails e = null;
+	public Employee getEmployeeInformation(int id){
+		Employee e = null;
 		ResultSet rs =	null;
 		try {
 			pStatement = con.prepareStatement("select * from employees where emp_no=?");
 			pStatement.setInt(1, id);
 			rs = pStatement.executeQuery();
 			while(rs.next()){
-				e = new EmployeeDetails(Integer.parseInt(rs.getString("emp_no")), rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"));
+				e = new Employee(Integer.parseInt(rs.getString("emp_no")), rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"),rs.getDate("hire_date"));
 			}
 		}catch(Exception e1){
 			e1.printStackTrace();

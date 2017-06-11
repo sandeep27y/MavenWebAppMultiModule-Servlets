@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.EmployeeServices.EmployeeService;
+import org.employee.model.Employee;
 import org.employee.model.EmployeeDetails;
 import org.employee.utill.EmployeeUtill;
 
@@ -43,12 +44,14 @@ public class EmloyeeController extends HttpServlet {
 		String action = request.getServletPath();
 		EmployeeService employeeService = new EmployeeService();
 		int employeeId;
-		String firstName,lastName,gender,employeeSalary,deptnumber,deptname;
+		String firstName,lastName,gender,deptnumber,deptname;
 		Date birthdate,hiredate,fromdate,todate;
+		double employeeSalary;
 		switch(action){
 			case "/edit":
 				employeeId = Integer.parseInt(request.getParameter("id"));
-				request.setAttribute("employeeId", employeeId);
+				EmployeeDetails employeeedit=employeeService.getEmployeeInformation(employeeId);
+				request.setAttribute("EmployeeDetails", employeeedit);
 				request.getRequestDispatcher("/EmployeeUpdate.jsp").forward(request, response);
 				break;
 			case "/EmployeeInfromation.do":
@@ -63,7 +66,11 @@ public class EmloyeeController extends HttpServlet {
 				firstName = request.getParameter("firstName");
 				lastName = request.getParameter("lastName");
 				gender = request.getParameter("gender");
-				EmployeeDetails emp = new EmployeeDetails(firstName, lastName, gender);
+				hiredate = EmployeeUtill.dateParsingToSQL(request.getParameter("hireDate"));
+				deptname = request.getParameter("departmentName");
+				employeeSalary = Double.parseDouble(request.getParameter("salary"));
+				
+				EmployeeDetails emp = new EmployeeDetails(employeeId,firstName, lastName, gender,hiredate,deptname,employeeSalary);
 				boolean validation=employeeService.updateEmployeeInformation(employeeId,emp);
 				if(validation){
 					request.setAttribute("display", "Employee Details are updated");
@@ -80,7 +87,7 @@ public class EmloyeeController extends HttpServlet {
 				lastName = request.getParameter("lastName");
 				gender = request.getParameter("gender");
 				hiredate = EmployeeUtill.dateParsingToSQL(request.getParameter("hiredate"));
-				employeeSalary = request.getParameter("salary");
+				employeeSalary = Double.parseDouble(request.getParameter("salary"));
 				fromdate = EmployeeUtill.dateParsingToSQL(request.getParameter("fromdate"));
 				todate = EmployeeUtill.dateParsingToSQL(request.getParameter("todate"));
 				deptnumber = request.getParameter("deptnumber");

@@ -2,9 +2,15 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.employee.model.UserInfo"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.EmployeeServices.UserService"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="org.employee.model.Employee"/>
+<fullyQualifiedTypeName name="org.employee.model.Salary"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="org.EmployeeReposotories.DepartmentDAO"/>
+<fullyQualifiedTypeName name="org.employee.model.Department"/>
+<fullyQualifiedTypeName name="org.employee.model.EmployeeDetails"/>
 </qualifiedTypeNameHistroy>
